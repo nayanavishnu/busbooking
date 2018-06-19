@@ -1,0 +1,34 @@
+.checkbox{
+    display: inline-block;
+    margin: 15px;
+}
+.checkbox input[type=checkbox]{
+    width: 30px;
+    height: 30px;
+}
+.checkbox .seatNumber{
+    font-weight: bold;
+    color: grey;
+    font-size: 20px;
+}
+.seatContainer .btn{
+    margin: 15px;
+}
+
+.mat-card{
+    width: 50%;
+    margin: 5% auto;
+}
+.mat-card h3{  
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+.mat-checkbox{
+    margin-right: 15px;
+    font-size: 20px;
+    color: #676767;
+    font-weight: bold;
+}
+.mat-icon{
+    margin-right: 10px;
+}

@@ -1,0 +1,26 @@
+<mat-card>
+  <h3>HTTP Testing</h3>  
+  <div class="example-container">
+    <mat-form-field>
+      <mat-select [(ngModel)]="httpMode" placeholder="Select Http Mode">
+        <mat-option *ngFor="let type of httpModes" [value]="type.id">
+          {{type.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <div class="panel-body" [ngSwitch]="httpMode">
+      <div *ngSwitchCase="1">
+        <app-get>
+          <div get1>Get Request 1</div>
+          <div get2>Get Request 1</div>
+        </app-get>
+      </div>
+      <div *ngSwitchCase="2">
+        <app-post>
+          <div post1>Post Request 1</div>
+          <div post2>Post Request 1</div>
+        </app-post>
+      </div>     
+    </div>
+  </div> 
+</mat-card>

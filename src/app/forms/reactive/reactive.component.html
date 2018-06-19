@@ -1,0 +1,11 @@
+<form [formGroup]= "reactiveForm" (ngSubmit)="saveData(reactiveForm.value)">
+  <input type="text" class="form-control" placeholder="Name" autofocus formControlName="name">
+  <br>
+  <em style="color:red" *ngIf="reactiveForm.get('name').hasError('required') && name?.touched">Name Required</em>
+  <input type="text" class="form-control" placeholder="Email" formControlName="email"> 
+  <br>
+  <em style="color:red" *ngIf="reactiveForm.get('email').hasError('email') && email?.touched">Email Invalid</em>
+  <em style="color:red" *ngIf="reactiveForm.get('email').hasError('required') && email?.touched">Email Required</em><br>
+  <em style="color:red" *ngIf="reactiveForm.get('email').hasError('validUrl') && email?.touched">Format Invalid</em>
+  <input type="submit" value="Submit" class="btn btn-lg btn-primary btn-block" [disabled]="reactiveForm.invalid">
+</form>

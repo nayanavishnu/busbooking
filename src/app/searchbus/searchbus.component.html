@@ -1,0 +1,28 @@
+<!-- <div class="container" id="formContainer">
+  <h3 class="form-signin-heading">Search Bus</h3>
+  <input type="text" class="form-control" name="from" placeholder="From" [(ngModel)]="from" required autofocus>
+  <br>
+  <input type="text" class="form-control" name="to" placeholder="To" [(ngModel)]="to" required>
+  <br>
+  <input type="date" class="form-control" name="date" placeholder="Date" [(ngModel)]="date" required>
+  <br>
+  <button class="btn btn-lg btn-primary btn-block" (click)='searchbus()'>Search</button>
+</div> -->
+
+<mat-card>
+    <h3>Search Bus</h3>  
+    <div class="example-container">
+      <mat-form-field>
+        <input matInput name="from" placeholder="From" [(ngModel)]="from">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput name="to" placeholder="To" [(ngModel)]="to" >
+      </mat-form-field>
+      <mat-form-field>
+          <input matInput [matDatepicker]="picker" placeholder="Date" [(ngModel)]="date">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <button mat-raised-button color="accent" (click)='searchbus()'>Search</button>
+  </mat-card>

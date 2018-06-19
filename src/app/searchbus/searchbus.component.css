@@ -1,0 +1,15 @@
+.mat-card{
+    width: 30%;
+    margin: 5% auto;
+}
+.mat-card h3{  
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+.example-container {
+    display: flex;
+    flex-direction: column;
+}  
+.example-container > * {
+    width: 100%;
+}

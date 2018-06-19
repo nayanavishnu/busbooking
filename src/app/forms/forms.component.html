@@ -1,0 +1,23 @@
+<mat-card>
+  <h3>Form Validation</h3>  
+  <div class="example-container">
+    <mat-form-field>
+      <mat-select [(ngModel)]="formType" placeholder="Select Validation Type">
+        <mat-option  [value]="1">
+          Reactive
+        </mat-option>
+        <mat-option  [value]="2">
+          Template
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <div class="panel-body" [ngSwitch]="formType">
+      <div *ngSwitchCase="1">
+        <app-reactive></app-reactive>
+      </div>
+      <div *ngSwitchCase="2">
+        <app-template></app-template>
+      </div>     
+    </div>
+  </div> 
+</mat-card>

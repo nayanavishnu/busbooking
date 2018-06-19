@@ -1,0 +1,55 @@
+<!-- <div class="container">
+  <h2>Bus List</h2>
+  <div class="panel-group">
+    <div class="panel panel-default" *ngFor="let bus of busList; let i = index;">
+      <div class="panel-heading">{{bus.name}}</div>
+      <div class="panel-body"> Total Seat : {{bus.totalseat}}</div>
+      <div class="panel-body"> Route : {{bus.busroute.from}} - {{bus.busroute.to}}</div>
+      <div class="panel-body"> Date : {{bus.busroute.date}}</div>
+      <div class="panel-body">
+        <a (click)="showSeats(bus)">
+          <span *ngIf="!bus.showBus">Show Seats</span>
+          <span *ngIf="bus.showBus">Hide Seats</span>
+        </a>
+      </div>
+      <div *ngIf="bus.showBus" class="seatContainer">
+        <div class="checkbox" *ngFor="let seat of busSeats">
+          <label>
+            <input type="checkbox" (change)="selectSeat(seat)" [checked]="seat.selectSeat" [disabled]="seat.selectSeat && seat.userId">
+          </label>
+          <label class="seatNumber">{{seat.seatId}}</label>
+        </div>
+        <br>
+        <button class="btn btn-lg btn-primary" (click)='bookBus(bus)' *ngIf="selectedSeats.length">Book Bus</button>
+      </div>
+    </div>
+  </div> -->
+<mat-card>
+  <h3 mat-subheader>Bus List</h3>
+  <mat-accordion *ngIf="busList.length">
+    <mat-expansion-panel *ngFor="let bus of busList; let i = index;">
+      <mat-expansion-panel-header (click)="showSeats(bus)">
+        <mat-panel-title>
+          <mat-icon mat-list-icon>directions_bus</mat-icon>
+          {{bus.name}}
+        </mat-panel-title>
+        <mat-panel-description>
+          {{bus.busroute.from}} - {{bus.busroute.to}}
+        </mat-panel-description>
+        <mat-panel-description>
+          {{bus.busroute.date}}
+        </mat-panel-description>
+        <mat-panel-description>
+          Total Seat : {{bus.totalseat}}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <h5><b>Seats</b></h5>
+      <mat-checkbox *ngFor="let seat of busSeats" (change)="selectSeat(seat)" [checked]="seat.selectSeat" [disabled]="seat.selectSeat && seat.userId">
+        {{seat.seatId}}
+      </mat-checkbox>
+      <button mat-raised-button color="primary" (click)='bookBus(bus)' *ngIf="selectedSeats.length">Book Bus</button>
+    
+    </mat-expansion-panel>
+  </mat-accordion>
+  <p *ngIf="!busList.length"> No Bus Found</p>
+</mat-card>

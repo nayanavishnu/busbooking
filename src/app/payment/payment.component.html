@@ -1,0 +1,76 @@
+<!-- <div class="container paymentContainer">
+  <h2>Payment</h2>
+  <div class="panel-group">
+    <div class="panel panel-default">
+      <div class="panel-heading">{{selectedBus["name"]}}</div>
+      <div class="panel-heading">Route : {{selectedBus.busroute.from}}- {{selectedBus.busroute.to}}</div>
+      <div class="panel-heading">Date : {{selectedBus.busroute.date}}</div>
+      <div class="panel-body"> Seat Selected : {{selectedSeats.length}}</div>
+      <div class="panel-body"> Rate per seat : {{selectedBus["ratePerSeat"]}}</div>
+      <div class="panel-body"> Total : {{totalAmount | currency : "INR"}}</div>
+      <div class="panel-body"> GST : {{gst}} %</div>
+      <div class="panel-body"> Tax : {{tax | currency : "INR"}} </div>
+      <div class="panel-body"> Payable Amount : {{ payableAmount | currency : "INR"}}</div>
+      <div class="panel-heading">Payment Mode :
+        <select [(ngModel)]="paymentMode" class="form-control">
+          <option *ngFor="let mode of paymentModes" [value]="mode.id">{{mode.name}}</option>
+        </select>
+      </div>
+      <div class="panel-body" [ngSwitch]="paymentMode">
+        <div *ngSwitchCase="1">
+          <app-internetbanking [payableAmount]="payableAmount" (payEvent)='payNow($event)'></app-internetbanking>
+        </div>
+        <div *ngSwitchCase="2">
+          <app-creditcard [payableAmount]="payableAmount" (payEvent)='payNow($event)'></app-creditcard>
+        </div>
+        <div *ngSwitchDefault>
+          <app-cod [payableAmount]="payableAmount" (payEvent)='payNow($event)'></app-cod>
+        </div>
+      </div>
+    </div>
+  </div> -->
+<mat-card>
+  <h3 mat-subheader>Payment</h3>
+  <mat-card-header>
+    <div mat-card-avatar>
+      <mat-icon mat-list-icon>directions_bus</mat-icon>
+    </div>
+    <mat-card-title>
+      <h5>
+        <b>{{selectedBus["name"]}}</b>
+      </h5> {{selectedBus.busroute.date}}</mat-card-title>
+    <mat-card-subtitle>{{selectedBus.busroute.from}}- {{selectedBus.busroute.to}}</mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+    <mat-card>
+      <mat-list role="list">
+        <mat-list-item role="listitem">Seat Selected : {{selectedSeats.length}}</mat-list-item>
+        <mat-list-item role="listitem">Rate per seat : {{selectedBus["ratePerSeat"]}}</mat-list-item>
+        <mat-list-item role="listitem">Total : {{totalAmount | currency : "INR"}}</mat-list-item>
+        <mat-list-item role="listitem">GST : {{gst}} %</mat-list-item>
+        <mat-list-item role="listitem">Tax : {{tax | currency : "INR"}}</mat-list-item>
+        <mat-list-item role="listitem">Payable Amount : {{ payableAmount | currency : "INR"}}</mat-list-item>
+      </mat-list>
+    </mat-card>
+    <mat-form-field>
+      <mat-select [(ngModel)]="paymentMode" placeholder="Select Payment Mode">
+        <mat-option *ngFor="let mode of paymentModes" [value]="mode.id">
+          {{mode.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <div class="panel-body" [ngSwitch]="paymentMode">
+      <div *ngSwitchCase="1">
+        <app-internetbanking [payableAmount]="payableAmount" (payEvent)='payNow($event)'></app-internetbanking>
+      </div>
+      <div *ngSwitchCase="2">
+        <app-creditcard [payableAmount]="payableAmount" (payEvent)='payNow($event)'></app-creditcard>
+      </div>
+      <div *ngSwitchDefault>
+        <app-cod [payableAmount]="payableAmount" (payEvent)='payNow($event)'></app-cod>
+      </div>
+    </div>
+  </mat-card-content>
+
+</mat-card>

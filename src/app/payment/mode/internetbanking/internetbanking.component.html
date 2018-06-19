@@ -1,0 +1,38 @@
+<div class="panel panel-default credit-card-box">
+  <div class="panel-heading">
+    <div class="row">
+      <h3 class="panel-title">Internet Banking</h3>
+    </div>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-xs-12 col-md-12">
+        <div class="form-group">
+          <label for="cardNumber">Username</label>
+          <input type="text" class="form-control" name="cardNumber" placeholder="Username" [(ngModel)]="username" required autofocus
+          />
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-md-12">
+        <div class="form-group">
+          <label for="cardCVC">Password</label>
+          <input type="password" class="form-control" name="cardCVC" placeholder="Password" [(ngModel)]="password" required />
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="form-group">
+          <label for="couponCode">Payable Amount : {{payableAmount | currency : "INR"}}</label>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <button class="subscribe btn btn-success btn-lg btn-block" type="button" (click)='payment()'>Pay Now</button>
+      </div>
+    </div>
+  </div>
+</div>

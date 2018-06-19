@@ -1,0 +1,36 @@
+<!-- <div class="header">
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">Bus Booking</a>
+      </div>
+      <ul class="nav navbar-nav">
+          <li><a routerLink="">Login</a></li>  
+          <li><a routerLink="search">Search</a></li>              
+      </ul>
+    </div>
+  </nav>
+</div> -->
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span class="app_name">Bus Booking</span>
+    <span class="example-spacer"></span>
+    <a class="action_text" routerLink="search">Search</a>
+    <a class="action_text" routerLink="http">HTTP</a>
+    <a class="action_text" routerLink="forms">Form Validation</a>
+    <a class="action_text" routerLink="observable">Observable</a>
+    <!-- <a class="action_text" routerLink="lifecycle">Life Cycle</a> -->
+    <mat-icon class="example-icon" (click)='logout()'>settings_power</mat-icon>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<app-alert></app-alert>
+<app-lifecycle [title]="title"></app-lifecycle>
+
+<div>
+  <router-outlet></router-outlet>
+</div>
+
+<div class="footer">
+  <p>Footer</p>
+</div>
